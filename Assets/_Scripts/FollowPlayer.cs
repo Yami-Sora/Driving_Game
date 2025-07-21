@@ -7,11 +7,6 @@ public class FollowPlayer : MonoBehaviour
     protected float speed = 4f;
     protected float DisLimit = 0.5f;
 
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
     void Update()
     {
         this.Follow();

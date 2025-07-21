@@ -6,13 +6,13 @@ public class PlayerPosition : MonoBehaviour
 {
     int index =1;
     List<GameObject> bombs = new List<GameObject>();
-    public GameObject bombPrefab;
+    protected GameObject bombPrefab;
     protected float spawnTimer = 0f;
     protected float spawnDelay = 1f;
     private void Awake()
     {
         this.bombPrefab = GameObject.Find("BomPrefab");
-        bombPrefab.gameObject.SetActive(false);
+        this.bombPrefab.SetActive(false);
     }
 
 

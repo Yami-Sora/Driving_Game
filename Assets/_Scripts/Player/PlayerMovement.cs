@@ -7,10 +7,11 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 velocity =new Vector2(0f, 0f);
     [SerializeField] protected float pressHorizontal = 0f;
     [SerializeField] protected float pressVertical = 0f;
-    [SerializeField] protected float speedUp = 0.5f;
+    [SerializeField] protected float speedUp = 0.2f;
     [SerializeField] protected float speedDown = 0.5f;
     [SerializeField] protected float speedMax = 20f;
     [SerializeField] protected float speedHorizontal = 10f;
+    [SerializeField] protected bool autoRun = false;
 
     private void Awake()
     {
@@ -25,6 +26,10 @@ public class PlayerMovement : MonoBehaviour
     {
      this.pressHorizontal = Input.GetAxis("Horizontal");
      this.pressVertical = Input.GetAxis("Vertical");           
+        if (this.autoRun)
+        {
+            this.pressVertical = 1f;
+        }
     }
     private void FixedUpdate()
     {
@@ -33,17 +38,31 @@ public class PlayerMovement : MonoBehaviour
     protected virtual void UpdateSpeed()
     {
         this.velocity.x = this.pressHorizontal * this.speedHorizontal;
-        if (this.pressVertical > 0) this.velocity.y += this.speedUp;
-        if (this.pressVertical == 0)
-        {
-            this.velocity.y -= this.speedDown;
-            if (this.velocity.y < 0) this.velocity.y = 0;
-        }
-        if (this.velocity.y > this.speedMax) this.velocity.y = this.speedMax;
-
-
+        this.UpdateSpeedUp();
+        this.UpdateSpeedDown();
         this.rb2d.MovePosition(this.rb2d.position + this.velocity * Time.fixedDeltaTime);
     }
     
+    protected virtual void UpdateSpeedUp()
+    {
+        if (this.pressVertical <= 0) return;
+            this.velocity.y += this.speedUp;
+            if (this.velocity.y > this.speedMax) this.velocity.y = this.speedMax;
+            if (transform.position.x > 12 || transform.position.x < -12)
+            {
+                this.velocity.y -= 1f; ;
+
+                if (this.velocity.y < 3f)
+                {
+                    this.velocity.y = 3f;
+                }
+            }
+    }
+    protected virtual void UpdateSpeedDown()
+    {
+        if (this.pressVertical > 0) return;
+        this.velocity.y -= this.speedDown;
+        if (this.velocity.y < 0) this.velocity.y = 0;
+    }
 }
  
