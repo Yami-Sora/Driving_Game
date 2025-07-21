@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerPosition : MonoBehaviour
 {
     int index =1;
-    List<GameObject> bombs = new List<GameObject>();
+    protected List<GameObject> bombs = new List<GameObject>();
     protected GameObject bombPrefab;
     protected float spawnTimer = 0f;
     protected float spawnDelay = 1f;
