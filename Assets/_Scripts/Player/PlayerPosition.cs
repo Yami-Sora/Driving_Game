@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerPosition : MonoBehaviour
+public class PlayerPosion : MonoBehaviour
 {
     int index =1;
     protected List<GameObject> bombs = new List<GameObject>();
@@ -11,7 +11,7 @@ public class PlayerPosition : MonoBehaviour
     protected float spawnDelay = 1f;
     private void Awake()
     {
-        this.bombPrefab = GameObject.Find("BomPrefab");
+        this.bombPrefab = GameObject.Find("BombPrefab");
         this.bombPrefab.SetActive(false);
     }
 
