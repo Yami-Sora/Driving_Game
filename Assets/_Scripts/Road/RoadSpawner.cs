@@ -39,6 +39,7 @@ public class RoadSpawner : MonoBehaviour
     protected virtual void Spawn(Vector3 position) 
     {
         this.roadCurrent = Instantiate(this.roadPrefab, position, this.roadPrefab.transform.rotation);
+        this.roadCurrent.transform.parent = transform;
         this.roadCurrent.SetActive(true);
     }
 }
