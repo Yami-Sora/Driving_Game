@@ -9,6 +9,6 @@ public class BombSpawner : Spawner
     {
         this.prefabName = "BombPrefab";
         this.spawnPosName = "BombSpawnPos";
-        this.maxObj = 7; 
+        this.maxObj = 17; 
     }
 }
