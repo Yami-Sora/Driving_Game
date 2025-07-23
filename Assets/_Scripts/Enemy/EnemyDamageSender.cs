@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyDamageSender : DamageSender
 {
     [Header("Enemy")]
-    protected EnemyCtrl enemyCtrl;
+    public EnemyCtrl enemyCtrl;
 
     private void Awake()
     {
@@ -14,6 +14,6 @@ public class EnemyDamageSender : DamageSender
         base.ColliderSendDamage(collision);
 
         this.enemyCtrl.despawner.Despawn();
-        //Destroy(this.gameObject);
+        
     }
 }
