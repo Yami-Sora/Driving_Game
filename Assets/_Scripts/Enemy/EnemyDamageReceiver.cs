@@ -18,6 +18,10 @@ public class EnemyDamageReceiver : DamageReceiver
     public override void Receive(int damage)
     {
         base.Receive(damage);
-        if(this.IsDead()) this.enemyCtrl.despawner.Despawn();
+        if (this.IsDead())
+        {
+            EffectManager.Instance.SpawnVFX("Explosion_B", transform.position, Quaternion.identity);
+            this.enemyCtrl.despawner.Despawn();
+        }
     }
 }

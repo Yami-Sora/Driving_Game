@@ -3,7 +3,7 @@ using UnityEngine;
 public class DamageSender : MonoBehaviour
 {
     [Header("DamageSender")]
-    public int damage =1;
+    public int damage = 1;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         this.ColliderSendDamage(collision);

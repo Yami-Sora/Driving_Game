@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class DamageReceiver : MonoBehaviour
 {
-    protected int hp = 3;
+    [Header("Damage Receiver")]
+    public int hp = 1;
 
     public virtual bool IsDead()
     {

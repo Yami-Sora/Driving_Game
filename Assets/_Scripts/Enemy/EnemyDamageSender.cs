@@ -13,7 +13,7 @@ public class EnemyDamageSender : DamageSender
     {
         base.ColliderSendDamage(collision);
 
-        this.enemyCtrl.despawner.Despawn();
+        this.enemyCtrl.damageReceiver.Receive(1);
         
     }
 }
